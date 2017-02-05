@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="grabBagApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Grab Bag App</title>
+
+    <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+  </head>
+
+  <body>
+  <h1>Grab Bag App</h1>
+    <nav class='tabs'>
+      <a ui-sref="home">Home</a>
+      <a ui-sref="namepicker">Name Picker</a>
+    </nav>
+
+    <div ui-view></div>
+
+
+<!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <!-- My Pages -->
+    <script src="components/app.js"></script>
+    <script src="components/app.route.js"></script>
+    <script src="components/namepicker/namepicker.controller.js"></script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+<h1>Name Picker</h1>
+
+
+<ul>
+  <li ng-repeat="person in ctrl.names"> {{ person.name }}</li>
+</ul>
+
+<ul>
+  <li ng-repeat="grabBagName in ctrl.grabBagNames"> {{ grabBagName.name }}</li>
+</ul>
+
+<button class="md-primary" ng-click="ctrl.loop()">Draw Names</button>
