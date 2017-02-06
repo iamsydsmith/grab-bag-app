@@ -1,5 +1,5 @@
 <h1>Name Picker</h1>
-<md-button class="md-raised md-primary" ng-click="ctrl.loop()">Draw Names</md-button>
+<md-button ng-disabled="ctrl.loopPressed === true" class="md-raised md-primary" ng-click="ctrl.loop()">Draw Names</md-button>
 
   <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs flex-gt-xs="50" layout="column">
