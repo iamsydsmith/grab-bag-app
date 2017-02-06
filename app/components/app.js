@@ -1,2 +1,2 @@
 angular
-    .module('grabBagApp', ['ui.router']);
+    .module('grabBagApp', ['ui.router', 'ngMaterial']);

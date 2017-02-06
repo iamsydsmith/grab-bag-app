@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="grabBagApp">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Grab Bag App</title>
 
@@ -10,16 +11,29 @@
   </head>
 
   <body>
-  <h1>Grab Bag App</h1>
-    <nav class='tabs'>
-      <a ui-sref="home">Home</a>
-      <a ui-sref="namepicker">Name Picker</a>
-    </nav>
 
+  <div layout="column" layout-fill>
+  <md-toolbar>
+
+    <div class="md-toolbar-tools">
+      <h2 md-truncate flex>Grab Bag App</h2>
+
+      <md-button ui-sref="home">
+        Home
+      </md-button>
+      <md-button ui-sref="namepicker">
+        Name Picker
+      </md-button>
+    </div>
+
+  </md-toolbar>
+  <md-content>
     <div ui-view></div>
+  </md-content>
+  </div>
 
 
-<!-- Angular Material requires Angular.js Libraries -->
+  <!-- Angular Material requires Angular.js Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>

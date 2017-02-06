@@ -1,12 +1,33 @@
 <h1>Name Picker</h1>
+<md-button class="md-raised md-primary" ng-click="ctrl.loop()">Draw Names</md-button>
+
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <h3>Particpants</h3>
+      <md-card ng-repeat="person in ctrl.names">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{ person.name }}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"><img height="80" width="80" src="{{ person.pic }}"></div>
+          </md-card-title-media>
+        </md-card-title>
+      </md-card>
+    </div>
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <h3 ng-show="ctrl.loopPressed === true">Your Grab Bag</h3>
+      <md-card ng-repeat="grabBagName in ctrl.grabBagNames">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{ grabBagName.name }}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"><img height="80" width="80" src="{{ grabBagName.pic }}"></div>
+          </md-card-title-media>
+        </md-card-title>
+      </md-card>
+    </div>
+</md-content>
 
 
-<ul>
-  <li ng-repeat="person in ctrl.names"> {{ person.name }}</li>
-</ul>
-
-<ul>
-  <li ng-repeat="grabBagName in ctrl.grabBagNames"> {{ grabBagName.name }}</li>
-</ul>
-
-<button class="md-primary" ng-click="ctrl.loop()">Draw Names</button>

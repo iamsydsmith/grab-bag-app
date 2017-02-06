@@ -5,49 +5,56 @@ angular.module('grabBagApp')
 
       function namePickerCtrl($http, $state) {
 
-        console.log('namePickerCtrl is alive!');
-
-
         var ctrl = this;
 
         ctrl.names = [
-         { name: "Sydney"
+         { name: "Sydney",
+           pic: "pics/syd.jpg"
           },
           {
-            name: "Tamara"
+            name: "Tamara",
+            pic: "pics/tam.jpg"
           },
           {
-            name: "Talisha"
+            name: "Talisha",
+            pic: "pics/talisha.jpg"
           },
           {
-            name: "Bertha"
+            name: "Bertha",
+            pic: "pics/bert.jpg"
           },
           {
-            name: "Devin"
+            name: "Devin",
+            pic: "pics/devin.jpg"
           },
           {
-            name: "Michelle"
+            name: "Michelle",
+            pic: "pics/michelle.jpg"
           },
           {
-            name: "Linda"
+            name: "Linda",
+            pic: "pics/linda.jpg"
           },
           {
-            name: "Larry"
+            name: "Larry",
+            pic: "pics/larry.jpg"
           },
           {
-            name: "Terry"
+            name: "Terry",
+            pic: "pics/terry.jpg"
+
           },
           {
-            name: "Jourdan"
+            name: "Sean",
+            pic: "pics/sean.jpg"
           }
         ];
 
-         ctrl.namePicker = angular.copy(ctrl.names);
-
-         ctrl.grabBagNames = [];
-
+        ctrl.namePicker = angular.copy(ctrl.names);
+        ctrl.grabBagNames = [];
         ctrl.shuffleNames = shuffleNames;
         ctrl.loop = loop;
+        ctrl.loopPressed = false;
 
         function shuffleNames (names){
           var namePicker = names.sort(function(){ return 0.5 - Math.random() });
@@ -59,8 +66,8 @@ angular.module('grabBagApp')
           for(var j = 0; j < ctrl.namePicker.length; j++)
             while(ctrl.names[i].name === ctrl.namePicker[j].name){
               ctrl.grabBagNames = ctrl.shuffleNames(ctrl.namePicker);
+              ctrl.loopPressed = true;
               return ctrl.grabBagNames;
-              console.log(names[i].name);
             }
           }
         }
