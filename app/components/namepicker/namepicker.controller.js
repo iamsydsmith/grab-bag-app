@@ -44,4 +44,5 @@ function namePickerCtrl($http, $state) {
           } 
         }
       }
-    };
+    }
+};
