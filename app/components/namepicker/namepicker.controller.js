@@ -16,6 +16,8 @@ angular.module('grabBagApp')
             });
         };
 
+        ctrl.getPeople();
+
         // ctrl.people = [
         //  { name: "Sydney",
         //    pic: "pics/syd.jpg"
