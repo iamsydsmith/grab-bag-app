@@ -7,6 +7,8 @@
     var methodOverride = require('method-override');
     var db = require('./db');
 
+    var courses        = require('./routes/people');
+
     // configuration =================
 
 
@@ -29,7 +31,12 @@
     app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
     app.use(methodOverride());
 
+    app.use('/', routes);
+    app.use('/api/people', people);
+
     // listen (start app with node server.js) ======================================
 
     app.listen(process.env.PORT || 8080);
     console.log("App listening on port 8080");
+
+    module.exports = app;
