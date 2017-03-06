@@ -35,7 +35,7 @@ function namePickerCtrl($http, $state) {
           while(ctrl.people[i].name === ctrl.namePicker[j].name){
             for(var i = 0; i < ctrl.people[i].family.length; i++){
               for (var j = 0; j < ctrl.namePicker[j].family.length; j++){
-                while(ctrl.people[i].family[i] === ctrl.namePicker[j].family[j])
+                while(ctrl.people[i].family[i] === ctrl.namePicker[j].name)
                     ctrl.grabBagNames = ctrl.shuffleNames(ctrl.namePicker);
                     ctrl.loopPressed = true;
                     return ctrl.grabBagNames;
