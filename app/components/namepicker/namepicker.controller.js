@@ -29,18 +29,17 @@ function namePickerCtrl($http, $state) {
     }
 
     function loop(){
-        ctrl.namePicker = angular.copy(ctrl.people);
-        ctrl.grabBagNames = ctrl.shuffleNames(ctrl.namePicker)
-        while(ctrl.people[0].name == ctrl.grabBagNames[0].name &&
-            ctrl.people[1].name == ctrl.grabBagNames[1].name &&
-            ctrl.people[2].name == ctrl.grabBagNames[2].name &&
-            ctrl.people[3].name == ctrl.grabBagNames[3].name &&
-            ctrl.people[4].name == ctrl.grabBagNames[4].name &&
-            ctrl.people[5].name == ctrl.grabBagNames[5].name &&
-            ctrl.people[6].name == ctrl.grabBagNames[6].name &&
-            ctrl.people[7].name == ctrl.grabBagNames[7].name &&
-            ctrl.people[8].name == ctrl.grabBagNames[8].name &&
-            ctrl.people[9].name == ctrl.grabBagNames[9].name){
+        ctrl.grabBagNames = angular.copy(ctrl.people);
+        while(ctrl.people[0].name === ctrl.grabBagNames[0].name &&
+            ctrl.people[1].name === ctrl.grabBagNames[1].name &&
+            ctrl.people[2].name === ctrl.grabBagNames[2].name &&
+            ctrl.people[3].name === ctrl.grabBagNames[3].name &&
+            ctrl.people[4].name === ctrl.grabBagNames[4].name &&
+            ctrl.people[5].name === ctrl.grabBagNames[5].name &&
+            ctrl.people[6].name === ctrl.grabBagNames[6].name &&
+            ctrl.people[7].name === ctrl.grabBagNames[7].name &&
+            ctrl.people[8].name === ctrl.grabBagNames[8].name &&
+            ctrl.people[9].name === ctrl.grabBagNames[9].name){
             ctrl.grabBagNames = ctrl.shuffleNames(ctrl.grabBagNames);
             ctrl.loopPressed = true;
             return ctrl.grabBagNames;
