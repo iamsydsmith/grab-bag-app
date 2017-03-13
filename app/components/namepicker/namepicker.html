@@ -15,8 +15,8 @@
         </md-card-title>
       </md-card>
     </div>
-    <div flex-xs flex-gt-xs="50" layout="column">
-      <h3 ng-show="ctrl.loopPressed === true">Your Grab Bag</h3>
+    <div ng-show="ctrl.loopPressed === true" flex-xs flex-gt-xs="50" layout="column">
+      <h3>Your Grab Bag</h3>
       <md-card ng-repeat="grabBagName in ctrl.grabBagNames">
         <md-card-title>
           <md-card-title-text>
