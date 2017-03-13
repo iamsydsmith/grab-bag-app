@@ -30,17 +30,19 @@ function namePickerCtrl($http, $state) {
 
     function loop(){
       ctrl.namePicker = angular.copy(ctrl.people);
-      for(var i = 0; i < ctrl.people.length; i++){
-        for(var j = 0; j < ctrl.namePicker.length; j++){
-          for (var k = 0; k < ctrl.people[i].family.length; k++){
-          while(ctrl.people[i].name === ctrl.namePicker[j].name && 
-            ctrl.people[i].family[k] === ctrl.namePicker[j].name ){
-                    ctrl.grabBagNames = ctrl.shuffleNames(ctrl.namePicker);
-                    ctrl.loopPressed = true;
-                    return ctrl.grabBagNames;
-            }
-          } 
-        }
+      while(ctrl.people[0].name == ctrl.people[0].name &&
+        ctrl.people[1].name == ctrl.people[1].name &&
+        ctrl.people[2].name == ctrl.people[2].name &&
+        ctrl.people[3].name == ctrl.people[3].name &&
+        ctrl.people[4].name == ctrl.people[4].name &&
+        ctrl.people[5].name == ctrl.people[5].name &&
+        ctrl.people[6].name == ctrl.people[6].name &&
+        ctrl.people[7].name == ctrl.people[7].name &&
+        ctrl.people[8].name == ctrl.people[8].name &&
+        ctrl.people[9].name == ctrl.people[9].name &&){
+        ctrl.grabBagNames = ctrl.shuffleNames(ctrl.namePicker);
+        ctrl.loopPressed = true;
+        return ctrl.grabBagNames;
       }
     }
 };
