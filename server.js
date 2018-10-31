@@ -35,7 +35,7 @@
     app.use(methodOverride());
 
 
-    app.use('/api/people', people);
+    app.use('/family', people);
 
     // listen (start app with node server.js) ======================================
 
