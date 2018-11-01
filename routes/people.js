@@ -30,11 +30,24 @@ router.post('/', function (req, res, next) {
 
   newPerson.save()
   .then(person => {
-    res.send(person.name + " was saved to database");
+    res.json(person);
   })
   .catch(err => {
     res.status(400).send("unable to save to database");
   });
+});
+
+router.patch('/:id', function (req, res, next) {
+  Person.findById(req.params.id, (err, person) => {
+    if(req.body._id) {
+      delete req.body._id;
+    }
+    for(let b in req.body){
+      person[b] = req.body[b];
+    }
+    person.save();
+    res.json(person);
+  })
 });
 
 router.delete('/:id', function (req, res, next) {
