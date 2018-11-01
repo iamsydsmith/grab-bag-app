@@ -8,7 +8,7 @@ import requestDataLogic from "./logic/requestDataLogic";
 import App from "./components/App.js";
 
 const familyReducer = require("./reducers/familyReducer");
-const familyUrl = "http://mac-grab-bag.herokuapp.com/family";
+const familyUrl = "https://mac-grab-bag.herokuapp.com/family";
 
 const deps = {
   familyUrl

@@ -4,7 +4,7 @@ const defaultState = {
   }
 };
 
-function family(state = defaultState, action) {
+function familyReducer(state = defaultState, action) {
   switch (action.type) {
     case "DATA_RECEIVE": {
       return Object.assign({}, state, {
@@ -31,4 +31,4 @@ function family(state = defaultState, action) {
   }
 }
 
-module.exports = family;
+module.exports = familyReducer;

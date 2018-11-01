@@ -8,7 +8,7 @@ class App extends Component {
   }
 
   render() {
-    const appState = this.context.store.getState();
+    // const appState = this.context.store.getState();
 
     return (
       <div className="App">
