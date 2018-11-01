@@ -61,14 +61,5 @@ router.delete('/:id', function (req, res, next) {
   });
 });
 
-router.delete('/deleteAll', function (req, res, next) {
-  Person.drop({})
-  .then(() => {
-    res.send("All family members were deleted")
-  })
-  .catch(err => {
-    res.status(400).send("unable to save to database");
-  });
-});
 
 module.exports = router;
