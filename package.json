@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "App for the McIntosh Family.",
   "main": "server.js",
-  "author": "Sydney Smith",
+  "author": "Sydney Shinelle Smith",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
