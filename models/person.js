@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-// const PartnerSchema = new mongoose.Schema({
-//   name:  { type: String, required: true },
-//   email: { type: String, required: true },
-//   picture: String,
-//   gifts: Array
-// });
+const PartnerSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  picture: String,
+  gifts: Array
+});
 
 const PersonSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -13,7 +13,7 @@ const PersonSchema = new mongoose.Schema({
   picture: String,
   family: Array,
   gifts: Array,
-  partner: String,
+  partner: [PartnerSchema],
   created: { type: Date, default: Date.now },
   updated: { type: Date, default: Date.now }
 });
