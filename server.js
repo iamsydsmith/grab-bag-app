@@ -5,12 +5,13 @@ var mongoose = require("mongoose");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
+const passport = require("passport");
 var db = require("./db");
 
 // =================================================
 // ROUTES
 // =================================================
-var people = require("./routes/people");
+var users = require("./routes/users");
 
 // configuration =================
 
@@ -33,7 +34,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(methodOverride());
 app.use(require("cors")());
 
-app.use("/family", people);
+app.use("/api/users", users);
 
 // listen (start app with node server.js) ======================================
 
