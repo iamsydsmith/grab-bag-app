@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const passport = require("passport");
 const db = require("./db");
-const cors = require("cors");
 
 // =================================================
 // ROUTES
@@ -33,7 +32,6 @@ app.use(bodyParser.urlencoded({ extended: "true" }));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(methodOverride());
-app.options("*", cors());
 
 app.use("/api/users", users);
 
