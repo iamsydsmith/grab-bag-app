@@ -1,21 +1,22 @@
 // set up ========================
-var express = require("express");
-var app = express();
-var mongoose = require("mongoose");
-var morgan = require("morgan");
-var bodyParser = require("body-parser");
-var methodOverride = require("method-override");
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 const passport = require("passport");
-var db = require("./db");
+const db = require("./db");
+const cors = require("cors");
 
 // =================================================
 // ROUTES
 // =================================================
-var users = require("./routes/users");
+const users = require("./routes/users");
 
 // configuration =================
 
-var mongoURI = process.env.MONGODB_URI || "mongodb://localhost/grab-bag-app";
+const mongoURI = process.env.MONGODB_URI || "mongodb://localhost/grab-bag-app";
 
 mongoose.connect(mongoURI);
 
@@ -32,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: "true" }));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(methodOverride());
-app.use(require("cors")());
+app.use(cors());
 
 app.use("/api/users", users);
 
