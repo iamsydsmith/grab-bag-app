@@ -6,11 +6,8 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const validateRegisterInput = require("../passport/register");
 const validateLoginInput = require("../passport/login");
-const cors = require("cors");
 
 const User = require("../models/User");
-
-router.all("*", cors());
 
 router.post("/register", function(req, res) {
   const { errors, isValid } = validateRegisterInput(req.body);
