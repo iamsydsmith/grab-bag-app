@@ -52,70 +52,70 @@ router.post("/register", function(req, res) {
   });
 });
 
-router.post("/login", (req, res) => {
-  const { errors, isValid } = validateLoginInput(req.body);
-
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-
-  const email = req.body.email;
-  const password = req.body.password;
-
-  User.findOne({ email }).then(user => {
-    if (!user) {
-      errors.email = "User not found";
-      return res.status(404).json(errors);
-    }
-    bcrypt.compare(password, user.password).then(isMatch => {
-      if (isMatch) {
-        const payload = {
-          id: user.id,
-          name: user.name,
-          streetAddress: req.body.streetAddress,
-          city: req.body.city,
-          state: req.body.state,
-          zip: req.body.zip
-        };
-        jwt.sign(
-          payload,
-          "secret",
-          {
-            expiresIn: 3600
-          },
-          (err, token) => {
-            if (err) console.error("There is some error in token", err);
-            else {
-              res.json({
-                success: true,
-                token: `Bearer ${token}`
-              });
-            }
-          }
-        );
-      } else {
-        errors.password = "Incorrect Password";
-        return res.status(400).json(errors);
-      }
-    });
-  });
-});
-
-router.get(
-  "/me",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    return res.json({
-      id: req.user.id,
-      name: req.user.name,
-      email: req.user.email,
-      streetAddress: req.body.streetAddress,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip
-    });
-  }
-);
+// router.post("/login", (req, res) => {
+//   const { errors, isValid } = validateLoginInput(req.body);
+//
+//   if (!isValid) {
+//     return res.status(400).json(errors);
+//   }
+//
+//   const email = req.body.email;
+//   const password = req.body.password;
+//
+//   User.findOne({ email }).then(user => {
+//     if (!user) {
+//       errors.email = "User not found";
+//       return res.status(404).json(errors);
+//     }
+//     bcrypt.compare(password, user.password).then(isMatch => {
+//       if (isMatch) {
+//         const payload = {
+//           id: user.id,
+//           name: user.name,
+//           streetAddress: req.body.streetAddress,
+//           city: req.body.city,
+//           state: req.body.state,
+//           zip: req.body.zip
+//         };
+//         jwt.sign(
+//           payload,
+//           "secret",
+//           {
+//             expiresIn: 3600
+//           },
+//           (err, token) => {
+//             if (err) console.error("There is some error in token", err);
+//             else {
+//               res.json({
+//                 success: true,
+//                 token: `Bearer ${token}`
+//               });
+//             }
+//           }
+//         );
+//       } else {
+//         errors.password = "Incorrect Password";
+//         return res.status(400).json(errors);
+//       }
+//     });
+//   });
+// });
+//
+// router.get(
+//   "/me",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     return res.json({
+//       id: req.user.id,
+//       name: req.user.name,
+//       email: req.user.email,
+//       streetAddress: req.body.streetAddress,
+//       city: req.body.city,
+//       state: req.body.state,
+//       zip: req.body.zip
+//     });
+//   }
+// );
 
 module.exports = router;
 
