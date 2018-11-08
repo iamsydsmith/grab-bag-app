@@ -6,10 +6,11 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const validateRegisterInput = require("../passport/register");
 const validateLoginInput = require("../passport/login");
+const cors = require("cors");
 
 const User = require("../models/User");
 
-router.post("/register", function(req, res) {
+router.post("/register", cors(), function(req, res) {
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
@@ -52,7 +53,7 @@ router.post("/register", function(req, res) {
   });
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", cors(), (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   if (!isValid) {
@@ -103,6 +104,7 @@ router.post("/login", (req, res) => {
 
 router.get(
   "/me",
+  cors(),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     return res.json({
