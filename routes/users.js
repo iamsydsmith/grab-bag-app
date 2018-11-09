@@ -9,6 +9,29 @@ const validateLoginInput = require("../passport/login");
 
 const User = require("../models/user");
 
+router.get("/", function(req, res, next) {
+  User.find({})
+    .then(users => {
+      res.status(200).json(users);
+    })
+    .catch(err => {
+      res.status(400).send("unable to get database");
+    });
+});
+
+router.get("/:id", function(req, res, next) {
+  User.findById(req.params.id)
+    .then(user => {
+      if (!user) {
+        res.status(404).json({ error: "Not found" });
+      }
+      res.status(200).json(user);
+    })
+    .catch(err => {
+      return next(err);
+    });
+});
+
 router.post("/register", function(req, res) {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -127,28 +150,7 @@ module.exports = router;
 //   }
 // }
 //
-// router.get("/", authenticate, function(req, res, next) {
-//   User.find({})
-//     .then(users => {
-//       res.status(200).json(users);
-//     })
-//     .catch(err => {
-//       res.status(400).send("unable to get database");
-//     });
-// });
-//
-// router.get("/:id", authenticate, function(req, res, next) {
-//   User.findById(req.params.id)
-//     .then(user => {
-//       if (!user) {
-//         res.status(404).json({ error: "Not found" });
-//       }
-//       res.status(200).json(user);
-//     })
-//     .catch(err => {
-//       return next(err);
-//     });
-// });
+
 //
 // router.post("/", authenticate, function(req, res, next) {
 //   const newUser = new User(req.body);
