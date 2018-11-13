@@ -94,11 +94,15 @@ router.post("/login", (req, res) => {
       if (isMatch) {
         const payload = {
           id: user.id,
-          name: user.name,
-          streetAddress: req.body.streetAddress,
-          city: req.body.city,
-          state: req.body.state,
-          zip: req.body.zip
+          firstName: user.firstName,
+          lastName: user.lastName,
+          streetAddress: user.streetAddress,
+          city: user.city,
+          state: user.state,
+          zip: user.zip,
+          family: user.family,
+          gifts: user.gifts,
+          partner: user.partner
         };
         jwt.sign(
           payload,
@@ -111,7 +115,8 @@ router.post("/login", (req, res) => {
             else {
               res.json({
                 success: true,
-                token: `Bearer ${token}`
+                token: `Bearer ${token}`,
+                user: payload
               });
             }
           }
