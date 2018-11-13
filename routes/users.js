@@ -140,30 +140,19 @@ router.get(
   }
 );
 
+router.delete("/:id", function(req, res, next) {
+  const id = req.params.id;
+  User.findOneAndRemove({ _id: req.params.id })
+    .then(() => {
+      res.status(200).send("family member was deleted");
+    })
+    .catch(err => {
+      res.status(400).send("unable to save to database");
+    });
+});
+
 module.exports = router;
 
-// function authenticate(req, res, next) {
-//   if (!req.isAuthenticated()) {
-//     res.redirect("/");
-//   } else {
-//     next();
-//   }
-// }
-//
-
-//
-// router.post("/", authenticate, function(req, res, next) {
-//   const newUser = new User(req.body);
-//   newUser
-//     .save()
-//     .then(user => {
-//       res.status(200).json(user);
-//     })
-//     .catch(err => {
-//       res.status(400).send("Unable to save to database");
-//     });
-// });
-//
 // router.patch("/:id", authenticate, function(req, res, next) {
 //   delete req.body._id;
 //   User.findByIdAndUpdate(req.params.id, req.body, {
@@ -178,13 +167,3 @@ module.exports = router;
 //     });
 // });
 //
-// router.delete("/:id", authenticate, function(req, res, next) {
-//   const id = req.params.id;
-//   User.findOneAndRemove({ _id: req.params.id })
-//     .then(() => {
-//       res.status(200).send("family member was deleted");
-//     })
-//     .catch(err => {
-//       res.status(400).send("unable to save to database");
-//     });
-// });

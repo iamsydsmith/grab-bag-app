@@ -17,7 +17,10 @@ const users = require("./routes/users");
 
 const mongoURI = process.env.MONGODB_URI || "mongodb://localhost/grab-bag-app";
 
-mongoose.connect(mongoURI);
+mongoose.connect(
+  mongoURI,
+  { useNewUrlParser: true }
+);
 
 // connect to mongoDB database on modulus.io
 
